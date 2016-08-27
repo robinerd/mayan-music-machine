@@ -3,23 +3,25 @@ using System.Collections;
 
 public class LevelSpin : MonoBehaviour {
 
-    public float beatsPerMinute;
-    public float beatsPerRevolution;
+    //set secondsPerRevolution instead, based on the length of the music file instead of calculating it, since the music program exports not the exactly correct tempo.
+    //public float beatsPerMinute;
+    //public float beatsPerRevolution;
 
-    float secondsPerRevolution;
+    public float secondsPerRevolution;
     float neededAngularVelocity;
 
     // Use this for initialization
     void Start () {
-        float secondsPerBeat = 60.0f / beatsPerMinute;
-        secondsPerRevolution = secondsPerBeat * beatsPerRevolution;
+        //float secondsPerBeat = 60.0f / beatsPerMinute;
+        //secondsPerRevolution = secondsPerBeat * beatsPerRevolution;
         neededAngularVelocity = 360.0f / secondsPerRevolution;
         GetComponent<Rigidbody2D>().angularVelocity = neededAngularVelocity;
+        Debug.Log("Revolution time: "+secondsPerRevolution);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        float seconds = Time.timeSinceLevelLoad;
+        float seconds = Time.time;
 
         // Wrap the absolute music time into the revolution time interval.
         while(seconds > secondsPerRevolution)

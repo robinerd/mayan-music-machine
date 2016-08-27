@@ -21,8 +21,8 @@ public class berry : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             GetComponent<AudioSource>().Play();
-            GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<CircleCollider2D>().enabled = false;
+            //GetComponent<SpriteRenderer>().enabled = false;
+            //GetComponent<CircleCollider2D>().enabled = false;
         }
     }
 }

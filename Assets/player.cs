@@ -26,7 +26,7 @@ public class player : MonoBehaviour {
         }
 
         float offsetX = targetX - transform.position.x - GetComponent<Rigidbody2D>().velocity.x;
-        GetComponent<Rigidbody2D>().AddForce(Vector2.right * offsetX * 50, ForceMode2D.Force);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * offsetX * 8, ForceMode2D.Force);
 	}
 
     bool canJump()
