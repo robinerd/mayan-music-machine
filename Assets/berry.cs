@@ -3,6 +3,7 @@ using System.Collections;
 
 public class berry : MonoBehaviour
 {
+    public bool isEaten = false;
 
     // Use this for initialization
     void Start()
@@ -23,6 +24,14 @@ public class berry : MonoBehaviour
             GetComponent<AudioSource>().Play();
             //GetComponent<SpriteRenderer>().enabled = false;
             //GetComponent<CircleCollider2D>().enabled = false;
+            if(!isEaten)
+            {
+                isEaten = true;
+                Color col = GetComponent<SpriteRenderer>().color;
+                col.a = 1.0f;
+                GetComponent<SpriteRenderer>().color = col;
+                GetComponentInChildren<BerryDisabled>().GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
     }
 }

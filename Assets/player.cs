@@ -18,15 +18,13 @@ public class player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(canJump());
-
 	    if(Input.GetKeyDown(KeyCode.Space) && canJump())
         {
             GetComponent<Rigidbody2D>().AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
-        float offsetX = targetX - transform.position.x - GetComponent<Rigidbody2D>().velocity.x;
-        GetComponent<Rigidbody2D>().AddForce(Vector2.right * offsetX * 8, ForceMode2D.Force);
+        //float offsetX = targetX - transform.position.x - GetComponent<Rigidbody2D>().velocity.x;
+        //GetComponent<Rigidbody2D>().AddForce(Vector2.right * offsetX * 15, ForceMode2D.Force);
 	}
 
     bool canJump()
