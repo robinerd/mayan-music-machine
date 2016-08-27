@@ -35,8 +35,6 @@ public class LevelSpin : MonoBehaviour {
         while (angle > 360.0f)
             angle -= 360.0f;
 
-        Debug.Log(targetAngle + " , " + angle);
-
         if (angle < targetAngle - 0.2f)
             GetComponent<Rigidbody2D>().angularVelocity = neededAngularVelocity * 1.1f;
         else if (angle > targetAngle + 0.2f)
