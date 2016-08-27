@@ -7,12 +7,14 @@ public class LevelSpin : MonoBehaviour {
     public float beatsPerRevolution;
 
     float secondsPerRevolution;
+    float neededAngularVelocity;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         float secondsPerBeat = 60.0f / beatsPerMinute;
         secondsPerRevolution = secondsPerBeat * beatsPerRevolution;
-        GetComponent<Rigidbody2D>().angularVelocity = 360.0f / secondsPerRevolution;
+        neededAngularVelocity = 360.0f / secondsPerRevolution;
+        GetComponent<Rigidbody2D>().angularVelocity = neededAngularVelocity;
 	}
 	
 	// Update is called once per frame
@@ -36,9 +38,9 @@ public class LevelSpin : MonoBehaviour {
         Debug.Log(targetAngle + " , " + angle);
 
         if (angle < targetAngle - 0.2f)
-            GetComponent<Rigidbody2D>().AddTorque(5);
-        else if(angle > targetAngle + 0.2f)
-            GetComponent<Rigidbody2D>().AddTorque(-5);
+            GetComponent<Rigidbody2D>().angularVelocity = neededAngularVelocity * 1.1f;
+        else if (angle > targetAngle + 0.2f)
+            GetComponent<Rigidbody2D>().angularVelocity = neededAngularVelocity * 0.92f;
 
     }
 }
