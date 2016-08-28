@@ -59,11 +59,12 @@ public class NextLevel : MonoBehaviour {
 
     void DisableCurrentLevel()
     {
-
+        
     }
 
     void EnableNextLevel()
     {
         nextLevel.SetActive(true);
+        currentLevel.transform.parent = nextLevel.transform;
     }
 }
