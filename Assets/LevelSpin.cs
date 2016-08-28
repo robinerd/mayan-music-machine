@@ -8,6 +8,7 @@ public class LevelSpin : MonoBehaviour {
     //public float beatsPerRevolution;
 
     public float secondsPerRevolution;
+    public AudioSource syncWithMusic;
     float neededAngularVelocity;
 
     // Use this for initialization
@@ -21,7 +22,7 @@ public class LevelSpin : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float seconds = Time.time;
+        float seconds = syncWithMusic.time;
 
         // Wrap the absolute music time into the revolution time interval.
         while(seconds > secondsPerRevolution)
@@ -38,9 +39,9 @@ public class LevelSpin : MonoBehaviour {
             angle -= 360.0f;
 
         if (angle < targetAngle - 0.2f)
-            GetComponent<Rigidbody2D>().angularVelocity = neededAngularVelocity * 1.1f;
+            GetComponent<Rigidbody2D>().angularVelocity = neededAngularVelocity * 1.3f;
         else if (angle > targetAngle + 0.2f)
-            GetComponent<Rigidbody2D>().angularVelocity = neededAngularVelocity * 0.92f;
+            GetComponent<Rigidbody2D>().angularVelocity = neededAngularVelocity * 0.86f;
 
     }
 }

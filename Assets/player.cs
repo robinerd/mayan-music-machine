@@ -29,7 +29,7 @@ public class player : MonoBehaviour {
 
     bool canJump()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, layerMaskGround);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.25f, layerMaskGround);
         if (hit && hit.collider)
             return true;
         return false;
